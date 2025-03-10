@@ -1,16 +1,16 @@
 // src/firebase.js
+
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAYWRKmnNyhObMz08CkDPhW6Vv4bn3oah8",
-  authDomain: "taskinator1615.firebaseapp.com",
-  projectId: "taskinator1615",
-  storageBucket: "taskinator1615.firebasestorage.app",
-  messagingSenderId: "874019378166",
-  appId: "1:874019378166:web:ad814f5e42951b38e8add7",
-  measurementId: "G-T3YWKL5VCB",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
