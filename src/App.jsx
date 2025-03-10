@@ -8,10 +8,10 @@ import {
 } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
-import SignUp from "./components/SignUp";
-import SignIn from "./components/SignIn";
 import SignOut from "./components/SignOut";
 import ToDoApp from "./components/todo";
+import LoginPage from "./components/login-page";
+import SignUpPage from "./components/sign-up-page";
 
 const App = () => {
   const [user] = useAuthState(auth);
@@ -26,8 +26,8 @@ const App = () => {
           </>
         ) : (
           <Routes>
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/signin" element={<LoginPage />} />
             <Route path="*" element={<Navigate to="/signin" />} />
           </Routes>
         )}
