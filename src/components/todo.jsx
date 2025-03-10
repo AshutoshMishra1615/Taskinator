@@ -6,10 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Plus, Trash2 } from "lucide-react";
 
 export default function ToDoApp() {
-  const [tasks, setTasks] = useState([
-    { id: 1, text: "Complete React project", completed: false },
-    { id: 2, text: "Read Firebase docs", completed: true },
-  ]);
+  const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
   const addTask = () => {
@@ -33,7 +30,7 @@ export default function ToDoApp() {
 
   return (
     <div className="max-w-lg mx-auto p-6 space-y-4">
-      <h1 className="text-2xl font-bold">ToDo App</h1>
+      <h1 className="text-2xl font-bold">Taskinator</h1>
       <div className="flex gap-2">
         <Input
           value={newTask}
