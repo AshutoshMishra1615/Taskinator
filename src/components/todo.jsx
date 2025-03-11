@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/Button"; // Correct path assumed
-import { Input } from "@/components/ui/Input";
-import { Card } from "@/components/ui/Card";
-import { Checkbox } from "@/components/ui/Checkbox";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Plus, Trash2 } from "lucide-react";
 import {
   doc,
@@ -22,7 +22,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 export default function ToDoApp() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
-  const [user] = useAuthState(auth); // Corrected to include auth parameter
+  const [user] = useAuthState(auth);
 
   const addToDo = async (taskText) => {
     if (!user || !taskText.trim()) return;
@@ -115,7 +115,7 @@ export default function ToDoApp() {
               className="flex items-center justify-between p-4"
             >
               <div className="flex items-center gap-3 flex-1">
-                <Checkbox // Corrected from <Check box
+                <Checkbox
                   checked={task.completed}
                   onCheckedChange={(checked) => toggleTask(task.id, checked)}
                   aria-label="Toggle task completion"
