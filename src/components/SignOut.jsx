@@ -1,7 +1,7 @@
-// src/components/SignOut.js
 import React from "react";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
+import { Button } from "@/components/ui/button";
 
 const SignOut = () => {
   const handleSignOut = async () => {
@@ -14,7 +14,15 @@ const SignOut = () => {
     }
   };
 
-  return <button onClick={handleSignOut}>Sign Out</button>;
+  return (
+    <Button
+      variant="outline"
+      onClick={handleSignOut}
+      className="border-gray-300 hover:border-gray-500 transition-colors"
+    >
+      Sign Out
+    </Button>
+  );
 };
 
 export default SignOut;

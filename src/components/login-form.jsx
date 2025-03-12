@@ -7,7 +7,7 @@ import { useState } from "react";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import { toast } from "sonner";
 export function LoginForm({ className, ...props }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +15,6 @@ export function LoginForm({ className, ...props }) {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      // User signed in successfully
     } catch (error) {
       console.error("Error during sign-in:", error);
     }
@@ -24,10 +23,10 @@ export function LoginForm({ className, ...props }) {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Sign-in successful!");
+      toast.success("Sign-in successful!");
     } catch (error) {
       console.error("Error signing in:", error);
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 

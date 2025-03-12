@@ -6,7 +6,7 @@ import { auth } from "../firebase";
 import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import { toast } from "sonner";
 import { useState } from "react";
 
 export function SignUpForm({ className, ...props }) {
@@ -17,7 +17,6 @@ export function SignUpForm({ className, ...props }) {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      // User signed in successfully
     } catch (error) {
       console.error("Error during sign-in:", error);
     }
@@ -35,10 +34,10 @@ export function SignUpForm({ className, ...props }) {
         displayName: Username,
       });
 
-      alert("Registration successful!");
+      toast.success("Sign-up successful!");
     } catch (error) {
       console.error("Error signing up:", error);
-      alert(error.message);
+      toast.error(error.message);
     }
   };
   return (
