@@ -302,7 +302,6 @@ export default function Home() {
                 </DropdownMenu>
               </div>
             </div>
-            ;
           </div>
         </div>
       </header>
