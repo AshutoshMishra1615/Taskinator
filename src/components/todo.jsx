@@ -3,6 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Plus, Trash2 } from "lucide-react";
+import { enUS } from "date-fns/locale";
+import { format } from "date-fns";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu } from "lucide-react";
 import {
   doc,
   deleteDoc,
@@ -18,7 +27,6 @@ import {
 import { db, auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { motion, AnimatePresence } from "framer-motion";
-import { format } from "date-fns";
 import { signOut } from "firebase/auth";
 import {
   CalendarIcon,
@@ -262,6 +270,7 @@ export default function Home() {
                   {user?.displayName ? user.displayName.charAt(0) : "U"}
                 </AvatarFallback>
               </Avatar>
+
               <div className="hidden md:block">
                 <p className="text-sm font-medium">
                   {user?.displayName || user?.email}
@@ -274,7 +283,26 @@ export default function Home() {
                   Sign Out
                 </Button>
               </div>
+
+              <div className="md:hidden">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="icon">
+                      <Menu className="w-5 h-5" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem>
+                      {user?.displayName || user?.email}
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleSignOut}>
+                      Sign Out
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </div>
+            ;
           </div>
         </div>
       </header>
@@ -314,7 +342,7 @@ export default function Home() {
                     <PopoverTrigger asChild>
                       <Button
                         variant="outline"
-                        className="w-[180px] justify-start text-left font-normal md:w-[200px]"
+                        className="w-[180px] justify-start text-left font-normal md:w-[240px]"
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
                         {selectedDate ? (
@@ -324,15 +352,18 @@ export default function Home() {
                         )}
                       </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0">
-                      <Calendar
-                        mode="single"
-                        selected={
-                          selectedDate ? new Date(selectedDate) : undefined
-                        }
-                        onSelect={(date) => setSelectedDate(date)}
-                        initialFocus
-                      />
+                    <PopoverContent className="w-auto p-0" align="center">
+                      <div className="flex flex-col items-center">
+                        <Calendar
+                          mode="single"
+                          selected={
+                            selectedDate ? new Date(selectedDate) : undefined
+                          }
+                          onSelect={(date) => setSelectedDate(date)}
+                          initialFocus
+                          locale={enUS}
+                        />
+                      </div>
                     </PopoverContent>
                   </Popover>
                   <Select
