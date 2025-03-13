@@ -1,12 +1,27 @@
-# React + Vite
+# Taskinator  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Taskinator is a modern and minimalistic To-Do web app built using **React**, **Firebase**, and **ShadCN**. It helps users efficiently manage their tasks with features like authentication, filtering, drag-and-drop reordering, and reminders.  
 
-Currently, two official plugins are available:
+## ✨ Features  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔐 **User Authentication** (Google & Email)  
+- ✅ **CRUD Operations** (Create, Read, Update, Delete)  
+- 📌 **Task Completion Status** (Mark tasks as completed/pending)  
+- 🎯 **Filtering** (View completed/pending tasks)  
+- 📂 **User-Specific Tasks** (Tasks are private to each user)  
+- 📦 **Drag-and-Drop Reordering**  
+- ⏳ **Due Dates & Reminders**  
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack  
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React, Vite, ShadCN, Tailwind CSS  
+- **Backend**: Firebase (Firestore, Authentication)  
+- **State Management**: React Context API / Zustand  
+- **Deployment**: Vercel / Firebase Hosting  
+
+## 🚀 Getting Started  
+
+### 1️⃣ Clone the Repository  
+```sh
+git clone https://github.com/your-username/taskinator.git
+cd taskinator

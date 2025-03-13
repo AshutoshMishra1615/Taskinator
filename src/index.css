@@ -122,3 +122,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+.rdp-weekdays {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  text-align: center;
+}
