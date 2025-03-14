@@ -429,7 +429,7 @@ export default function Home() {
                       </TabsTrigger>
                     </TabsList>
                   </div>
-                  <TabsContent value="all" className="mt-4">
+                  <TabsContent value={filter} className="mt-4">
                     <AnimatePresence>
                       {filteredTasks.length === 0 ? (
                         <motion.div
